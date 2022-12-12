@@ -1,6 +1,5 @@
 import json
 import logging
-from time import sleep
 from ulauncher.api.client.Extension import Extension
 from ulauncher.api.client.EventListener import EventListener
 from ulauncher.api.shared.event import KeywordQueryEvent, ItemEnterEvent
@@ -12,10 +11,10 @@ from src.TransBaidu import TransBaidu
 logger = logging.getLogger(__name__)
 
 
-class DemoExtension(Extension):
+class TransExtension(Extension):
 
     def __init__(self):
-        super(DemoExtension, self).__init__()
+        super(TransExtension, self).__init__()
         self.subscribe(KeywordQueryEvent, KeywordQueryEventListener())
 
 
@@ -38,4 +37,4 @@ class KeywordQueryEventListener(EventListener):
         return RenderResultListAction(items)
 
 if __name__ == '__main__':
-    DemoExtension().run()
+    TransExtension().run()
